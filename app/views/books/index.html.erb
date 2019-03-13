@@ -1,0 +1,12 @@
+<h1 class="text-center">List of books </h1>
+<h1 class="current-category"><%= params[:category] %></h1>
+<% if @books.count == 0 %>
+	<h1>There are no books in the current category</h1>
+<% else %>
+	<% @books.each do |b| %>
+		<h3><%= link_to b.title, book_path(id: b.id)%>
+			<span><%=link_to (image_tag b.book_img.url(:index_img)),book_path(id: b.id) %><span>
+		</h3>
+	<% end %>
+<%end %>
+
